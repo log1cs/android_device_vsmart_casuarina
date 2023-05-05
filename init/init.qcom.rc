@@ -703,6 +703,9 @@ service loc_launcher /system/vendor/bin/loc_launcher
     user gps
     group gps
 
+on property:persist.sys.xtra-daemon.enabled=*
+    restart loc_launcher
+
 service drmdiag /system/vendor/bin/drmdiagapp
     class late_start
      user root
