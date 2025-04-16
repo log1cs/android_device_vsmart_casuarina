@@ -41,6 +41,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := msm8953
 
+# SEPolicy
+include device/qcom/sepolicy-legacy-um/SEPolicy.mk
+
 # Treble
 TARGET_COPY_OUT_VENDOR := vendor
 
