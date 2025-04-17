@@ -21,5 +21,10 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+# WLAN firmware symlinks
+PRODUCT_PACKAGES += \
+    firmware_WCNSS_qcom_cfg.ini_symlink \
+    firmware_WCNSS_wlan_dictionary.dat_symlink
+
 # Inherit vendor makefiles
 $(call inherit-product, vendor/vsmart/casuarina/casuarina-vendor.mk)
