@@ -10,6 +10,12 @@ $(call inherit-product, hardware/qcom-caf/common/common.mk)
 TARGET_SCREEN_HEIGHT := 1600
 TARGET_SCREEN_WIDTH := 720
 
+# Partitions
+PRODUCT_PACKAGES += \
+    vendor_bt_firmware_mountpoint \
+    vendor_dsp_mountpoint \
+    vendor_firmware_mnt_mountpoint
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
