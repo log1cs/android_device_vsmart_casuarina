@@ -36,6 +36,7 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_casuarina
 TARGET_RECOVERY_DEVICE_MODULES := libinit_casuarina
 
 # HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Kernel
