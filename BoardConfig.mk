@@ -85,6 +85,9 @@ include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 # Treble
 TARGET_COPY_OUT_VENDOR := vendor
 
+# Vendor security patch level
+VENDOR_SECURITY_PATCH := 2021-11-01
+
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
