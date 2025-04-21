@@ -96,6 +96,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := msm8953
 
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
+
 # SEPolicy
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 
