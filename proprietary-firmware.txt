@@ -1,0 +1,16 @@
+## All proprietary firmware from this list, unless pinned and noted otherwise,
+## are from casuarina_open (V430A_OPN_U_B15_211112).
+
+adspso.bin:dsp.bin
+cmnlib_30.mbn:cmnlib.mbn
+cmnlib64_30.mbn:cmnlib64.mbn
+devcfg.mbn
+emmc_appsboot.mbn:aboot.mbn
+km4.mbn:keymaster.mbn
+lksecapp.mbn
+mdtp.img
+NON-HLOS.bin:modem.bin
+rpm.mbn
+splash.img
+sbl1.mbn
+tz.mbn
