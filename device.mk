@@ -6,6 +6,10 @@
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
+# ANT
+PRODUCT_PACKAGES += \
+    AntHalService-Soong
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl \
