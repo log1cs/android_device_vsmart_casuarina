@@ -51,6 +51,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 # FM
 $(call soong_config_set,libfmjni,vendor,qcom)
+$(call soong_config_set_bool,libfmjni,no_fm_firmware,true)
 
 # IRQ balance
 PRODUCT_COPY_FILES += \
