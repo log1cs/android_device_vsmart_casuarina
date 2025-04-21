@@ -50,6 +50,10 @@ TARGET_SCREEN_WIDTH := 720
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 # FM
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni
+
 $(call soong_config_set,libfmjni,vendor,qcom)
 $(call soong_config_set_bool,libfmjni,no_fm_firmware,true)
 
