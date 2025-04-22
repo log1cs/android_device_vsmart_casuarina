@@ -50,6 +50,8 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('/product/', '/system_ext/'),
     ('vendor/etc/data/dsi_config.xml', 'vendor/etc/data/netmgr_config.xml'): blob_fixup()
         .fix_xml(),
+    'vendor/bin/pm-service': blob_fixup()
+        .add_needed('libutils-v33.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
