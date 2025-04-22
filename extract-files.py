@@ -52,6 +52,8 @@ blob_fixups: blob_fixups_user_type = {
         .fix_xml(),
     'vendor/bin/pm-service': blob_fixup()
         .add_needed('libutils-v33.so'),
+    'vendor/lib64/libwvhidl.so': blob_fixup()
+        .add_needed('libcrypto_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
