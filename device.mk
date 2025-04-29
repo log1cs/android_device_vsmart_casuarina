@@ -77,10 +77,13 @@ $(call soong_config_set_bool,libfmjni,no_fm_firmware,true)
 
 # GNSS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.0.vendor \
+    android.hardware.gnss@2.0-impl-qti \
+    android.hardware.gnss@2.0-service-qti \
+    libbatching \
+    libgeofencing \
+    libgnss \
     libwifi-hal-ctrl
 
-# GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
     $(LOCAL_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
