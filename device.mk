@@ -203,6 +203,7 @@ PRODUCT_PACKAGES += \
 
 # Runtime Resources Overlay
 PRODUCT_PACKAGES += \
+    CarrierConfigOverlay \
     WifiOverlay
 
 # WLAN firmware symlinks
