@@ -201,6 +201,10 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+# Runtime Resources Overlay
+PRODUCT_PACKAGES += \
+    WifiOverlay
+
 # WLAN firmware symlinks
 PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink \
