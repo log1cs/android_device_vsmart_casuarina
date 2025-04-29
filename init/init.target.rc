@@ -171,15 +171,6 @@ on boot
     chown system system /sys/class/vsm/tsp/doubletap_enable
     chmod 0660 /sys/class/vsm/tsp/doubletap_enable
 
-    # Add a cpuset for the camera daemon
-    # We want all cores for camera
-    mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0-3
-    write /dev/cpuset/camera-daemon/mems 0
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
-    chmod 0660 /dev/cpuset/camera-daemon/tasks
-
     # LED
     chown system system /sys/class/leds/red/blink
     chown system system /sys/class/leds/red/breath
