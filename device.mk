@@ -113,6 +113,11 @@ PRODUCT_PACKAGES += \
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_casuarina)
 
+# IPACM
+PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml
+
 # IRQ balance
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance_little_big.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance_little_big.conf
