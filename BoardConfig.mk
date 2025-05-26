@@ -37,9 +37,6 @@ TARGET_ENABLE_MEDIADRM_64 := true
 # GNSS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 
-# Init
-TARGET_RECOVERY_DEVICE_MODULES := libinit_casuarina
-
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
