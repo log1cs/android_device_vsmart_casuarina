@@ -53,6 +53,8 @@ blob_fixups: blob_fixups_user_type = {
 	.replace_needed('libqdMetaData.so', 'libqdMetaData.system.so'),
     'vendor/bin/pm-service': blob_fixup()
 	.add_needed('libutils-v33.so'),
+    'vendor/etc/izat.conf': blob_fixup()
+        .regex_replace('PROCESS_STATE=ENABLED', 'PROCESS_STATE=DISABLED'),
     'vendor/lib64/libwvhidl.so': blob_fixup()
         .add_needed('libcrypto_shim.so'),
 }  # fmt: skip

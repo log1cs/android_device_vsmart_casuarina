@@ -4,6 +4,8 @@ cc_library_shared {
     name: "liblocation_api",
     vendor: true,
 
+
+
     shared_libs: [
         "libutils",
         "libcutils",
