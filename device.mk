@@ -63,6 +63,16 @@ PRODUCT_PACKAGES += \
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
+# Display
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl:64 \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
+    gralloc.msm8953 \
+    hwcomposer.qcom \
+    vendor.qti.hardware.memtrack-service
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
