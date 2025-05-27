@@ -3,7 +3,8 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 #<src>                                      <mnt_point>  <type>  <mnt_flags and options>                     <fs_mgr_flags>
-/dev/block/bootdevice/by-name/system        /            ext4    ro,barrier=1,discard                        wait,avb
+/dev/block/by-name/system                   /system      ext4    ro,barrier=1,discard                        wait,avb,first_stage_mount
+/dev/block/by-name/vendor                   /vendor      ext4    ro,barrier=1,discard                        wait,avb,first_stage_mount
 /dev/block/bootdevice/by-name/userdata      /data        ext4    noatime,nosuid,nodev,barrier=0,noauto_da_alloc,discard  wait,fileencryption=ice,resize,quota,reservedsize=128M
 /devices/platform/soc/7864900.sdhci/mmc_host*        /storage/sdcard1 vfat  nosuid,nodev         wait,voldmanaged=sdcard1:auto,noemulatedsd,encryptable=footer
 /devices/platform/soc/7000000.ssusb/7000000.dwc3/xhci-hcd.0.auto*  /storage/usbotg  vfat  nosuid,nodev  wait,voldmanaged=usbotg:auto
