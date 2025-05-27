@@ -1,4 +1,7 @@
 soong_namespace {
+    imports: [
+	"vendor/vsmart/casuarina"
+    ],
 }
 
 install_symlink {
