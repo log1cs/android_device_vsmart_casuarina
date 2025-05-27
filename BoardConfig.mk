@@ -97,6 +97,9 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.qcom
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
+# RIL
+ENABLE_VENDOR_RIL_SERVICE := true
+
 # SEPolicy
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 
