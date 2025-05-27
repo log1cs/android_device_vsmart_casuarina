@@ -236,7 +236,8 @@ PRODUCT_PACKAGES += \
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    bootable/deprecated-ota
 
 # USB
 PRODUCT_PACKAGES += \
