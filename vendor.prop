@@ -66,6 +66,7 @@ dalvik.vm.dex2oat64.enabled=true
 # Display
 ro.sf.hwc_set_default_colormode=true
 debug.renderengine.backend=skiaglthreaded
+debug.sf.disable_client_composition_cache=1
 debug.sf.hw=1
 debug.sf.latch_unsignaled=0
 vendor.gralloc.enable_fb_ubwc=1
