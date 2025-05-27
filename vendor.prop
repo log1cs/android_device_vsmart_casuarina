@@ -74,6 +74,9 @@ ro.crypto.volume.filenames_mode=aes-256-cts
 # Cutout
 ro.support_hide_display_cutout=true
 
+# Dalvik
+dalvik.vm.dex2oat64.enabled=true
+
 # Display
 ro.sf.hwc_set_default_colormode=true
 debug.renderengine.backend=skiaglthreaded
