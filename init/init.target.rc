@@ -118,11 +118,6 @@ service vendor.qseecomd /vendor/bin/qseecomd
    user root
    group root
 
-#service aostlmd /system/bin/aostlmd
-#   class late_start
-#   user system
-#   group system net_raw
-
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
    user root
