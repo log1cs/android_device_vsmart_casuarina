@@ -913,20 +913,3 @@ service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0
     user system
     group system
     disabled
-
-#add by NhatND3 for serialno sync nv2497 begin
-on property:ro.boot.serialno=*
-    setprop persist.vendor.phone.test ${ro.serialno}
-    write /sys/class/android_usb/android0/iSerial ${ro.serialno}
-    write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
-    write /config/usb_gadget/g2/strings/0x409/serialnumber ${ro.serialno}
-    setprop vendor.usb.controller ${sys.usb.controller}
-    start vendor.qcom-usb-sh
-
-on property:persist.sys.phone.serialno=*
-    setprop persist.vendor.phone.serialno ${persist.sys.phone.serialno}
-    #add by quannh15 for set ro sn begin
-    setprop ro.boot.serialno ${persist.sys.phone.serialno}
-    setprop ro.serialno ${persist.sys.phone.serialno}
-    #add by quannh15 for set ro sn end
-#add by jiangzk for serialno sync nv2497 end
