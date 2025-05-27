@@ -55,6 +55,8 @@ blob_fixups: blob_fixups_user_type = {
 	.add_needed('libutils-v33.so'),
     'vendor/etc/izat.conf': blob_fixup()
         .regex_replace('PROCESS_STATE=ENABLED', 'PROCESS_STATE=DISABLED'),
+    'vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so': blob_fixup()
+	.replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
     'vendor/lib64/libwvhidl.so': blob_fixup()
         .add_needed('libcrypto_shim.so'),
 }  # fmt: skip
