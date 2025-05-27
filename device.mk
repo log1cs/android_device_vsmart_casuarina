@@ -85,6 +85,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint-service.lineage
+
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
