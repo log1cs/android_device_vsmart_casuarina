@@ -84,9 +84,6 @@ ro.frp.pst=/dev/block/platform/soc/7824900.sdhci/by-name/config
 debug.stagefright.omx_default_rank.sw-audio=1
 debug.stagefright.omx_default_rank=0
 
-# LMKD/PSI
-ro.lmk.kill_heaviest_task=true
-
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
