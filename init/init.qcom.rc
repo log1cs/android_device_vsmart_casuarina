@@ -452,7 +452,6 @@ service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
     user system
     group system
-    disabled
 
 service mlid /vendor/bin/mlid
     class late_start
