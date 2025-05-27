@@ -72,7 +72,6 @@ on post-fs-data
     mkdir /tombstones/dsps 0771 system system
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
-    mkdir /data/misc/dts 0770 media audio
 
 
 #Create folder for mm-qcamera-daemon
@@ -241,18 +240,6 @@ on property:init.svc.vendor.charger=running
     setprop persist.sys.usb.config mass_storage
     start vendor.hvdcp_opti
 
-service dts_configurator /system/vendor/bin/dts_configurator
-    class late_start
-    user system
-    group media audio
-    oneshot
-
-service dtseagleservice /system/vendor/bin/dts_eagle_service
-    class late_start
-    user system
-    group audio media
-    disabled
-
 service adsprpcd /system/vendor/bin/adsprpcd
     class main
     user media
@@ -262,9 +249,6 @@ service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
    class main
    user root
    group system wakelock
-
-on property:init.svc.dts_configurator=stopped
-    start dtseagleservice
 
 service vendor.per_mgr /system/vendor/bin/pm-service
     class core
