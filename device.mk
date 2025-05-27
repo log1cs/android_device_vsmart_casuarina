@@ -122,6 +122,11 @@ PRODUCT_PACKAGES += \
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_casuarina)
 
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    ims_ext_common.xml
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
