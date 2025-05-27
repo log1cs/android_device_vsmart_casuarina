@@ -101,9 +101,6 @@ ro.vendor.fm.use_audio_session=true
 debug.stagefright.omx_default_rank.sw-audio=1
 debug.stagefright.omx_default_rank=0
 
-# LMKD/PSI
-ro.lmk.kill_heaviest_task=true
-
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
