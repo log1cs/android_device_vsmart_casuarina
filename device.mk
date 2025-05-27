@@ -256,6 +256,11 @@ AB_OTA_UPDATER := false
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.3-service.basic
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
+
 # WLAN firmware symlinks
 PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink \
