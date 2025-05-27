@@ -53,6 +53,10 @@ blob_fixups: blob_fixups_user_type = {
 	.add_needed('libutils-v33.so'),
     'vendor/etc/izat.conf': blob_fixup()
         .regex_replace('PROCESS_STATE=ENABLED', 'PROCESS_STATE=DISABLED'),
+    ('vendor/lib/libmmcamera_faceproc.so', 'vendor/lib/libmmcamera_faceproc2.so'): blob_fixup()
+        .clear_symbol_version('__aeabi_memcpy')
+        .clear_symbol_version('__aeabi_memset')
+        .clear_symbol_version('__gnu_Unwind_Find_exidx'),
     'vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so': blob_fixup()
 	.replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
     'vendor/lib64/libwvhidl.so': blob_fixup()
