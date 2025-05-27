@@ -223,6 +223,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/permissions/telephony_system-ext_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml
 
+# QTI fwk-detect
+PRODUCT_PACKAGES += \
+    libvndfwk_detect_jni.qti.vendor
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
