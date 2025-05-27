@@ -27,8 +27,6 @@
 #
 #
 
-import init.carrier.rc
-
 on early-init
     write /proc/sys/kernel/sched_boost 1
     mkdir /firmware 0771 system system
@@ -49,8 +47,6 @@ on fs
     mkdir /mnt/vendor/persist/data 0700 system system
     mkdir /mnt/vendor/persist/bms 0700 root system
     restorecon_recursive /mnt/vendor/persist
-
-    #write /sys/kernel/boot_adsp/boot 1
 
     wait /dev/block/bootdevice/by-name/oem
     mount ext4 /dev/block/bootdevice/by-name/oem /oem ro nosuid nodev barrier=1
@@ -73,16 +69,6 @@ on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
 
-
-#Create folder for mm-qcamera-daemon
-    mkdir /data/vendor/camera 0770 camera camera
-
-#start camera server as daemon
-service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
-    class late_start
-    user camera
-    group camera system inet input graphics
-
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
@@ -91,45 +77,6 @@ on init
     write /dev/stune/foreground/schedtune.colocate 0
     write /dev/stune/top-app/schedtune.colocate 1
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-
-service qfp-daemon /system/vendor/bin/qfp-daemon
-   class late_start
-   user system
-   group system drmrpc
-
-service qrngd /system/bin/qrngd -f
-   class main
-   user root
-   group root
-
-service qrngp /system/bin/qrngp -f
-   class main
-   user root
-   group root
-   oneshot
-   disabled
-
-on property:sys.boot_completed=1
-   start qrngp
-
-service vendor.qseecomd /vendor/bin/qseecomd
-   class core
-   user root
-   group root
-
-service thermal-engine /system/vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   socket thermal-send-rule stream 0660 system system
-   group root
-
-service audiod /system/vendor/bin/audiod
-   class late_start
-   user system
-   group system
 
 on boot
     start rmt_storage
@@ -196,21 +143,21 @@ on boot
     setprop vendor.usb.rmnet.inst.name "rmnet"
     setprop vendor.usb.dpl.inst.name "dpl"
 
-service wcnss-service /system/vendor/bin/wcnss_service
+service wcnss-service /vendor/bin/wcnss_service
     class main
     user system
     group system wifi radio
     oneshot
 
 ## imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
-service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
+service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
 
 # imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
-service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
+service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
@@ -220,12 +167,12 @@ service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start vendor.imsdatadaemon
 
-service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
+service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
    user system
    group radio diag inet log
 
-service vendor.imsrcsservice /system/vendor/bin/imsrcsd
+service vendor.imsrcsservice /vendor/bin/imsrcsd
    class main
    user system
    group radio diag inet log wakelock
@@ -233,7 +180,7 @@ service vendor.imsrcsservice /system/vendor/bin/imsrcsd
 on property:vendor.ims.DATA_DAEMON_STATUS=1
     restart vendor.ims_rtp_daemon
 
-service ppd /system/vendor/bin/mm-pp-dpps
+service ppd /vendor/bin/mm-pp-dpps
     class late_start
     disabled
     user system
@@ -267,22 +214,22 @@ on property:init.svc.vendor.charger=running
     setprop persist.sys.usb.config mass_storage
     start vendor.hvdcp_opti
 
-service adsprpcd /system/vendor/bin/adsprpcd
+service adsprpcd /vendor/bin/adsprpcd
     class main
     user media
     group media
 
-service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
+service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
    class main
    user root
    group system wakelock
 
-service vendor.per_mgr /system/vendor/bin/pm-service
+service vendor.per_mgr /vendor/bin/pm-service
     class core
     user system
     group system net_raw
 
-service vendor.per_proxy /system/vendor/bin/pm-proxy
+service vendor.per_proxy /vendor/bin/pm-proxy
     class core
     user system
     group system
@@ -294,7 +241,16 @@ on property:init.svc.vendor.per_mgr=running
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
 
-service mdtpd /system/vendor/bin/mdtpd
-    class late_start
-    user root
-    group system radio drmrpc
+service vendor.qseecomd /vendor/bin/qseecomd
+   class core
+   user root
+   group root
+
+service thermal-engine /vendor/bin/thermal-engine
+   class main
+   user root
+   socket thermal-send-client stream 0666 system system
+   socket thermal-recv-client stream 0660 system system
+   socket thermal-recv-passive-client stream 0666 system system
+   socket thermal-send-rule stream 0660 system system
+   group root
