@@ -50,8 +50,7 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio-impl:32 \
-    audio.bluetooth.default \
-    libbt-vendor
+    audio.bluetooth.default
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1600
