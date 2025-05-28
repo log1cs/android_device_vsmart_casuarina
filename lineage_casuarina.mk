@@ -25,6 +25,6 @@ PRODUCT_MODEL := Joy 3
 PRODUCT_GMS_CLIENTID_BASE := android-vsmart
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    DeviceName=casuarina \
+    DeviceProduct=casuarina \
     BuildDesc="casuarina_open-user 10 QKQ1.200311.002 V430A_OPN_U_B15_211112 release-keys" \
     BuildFingerprint=vsmart/casuarina_open/casuarina:10/QKQ1.200311.002/V430A_OPN_U_B15_211112:user/release-keys
