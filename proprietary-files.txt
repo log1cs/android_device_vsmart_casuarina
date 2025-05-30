@@ -390,7 +390,7 @@ vendor/lib64/libwvhidl.so
 vendor/lib64/mediadrm/libdrmclearkeyplugin.so
 
 # Fingerprint
-vendor/lib64/hw/fpsensor_fingerprint.default.so
+vendor/lib64/hw/fpsensor_fingerprint.default.so;FIX_SONAME
 vendor/lib64/libfp_ext_svc2.so
 vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so
 
