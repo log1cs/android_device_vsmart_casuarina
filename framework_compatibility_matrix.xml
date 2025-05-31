@@ -23,12 +23,4 @@
             <instance>imsrtpservice</instance>
         </interface>
     </hal>
-    <hal format="hidl">
-        <name>vendor.vin.vTzService</name>
-        <version>1.0</version>
-        <interface>
-            <name>IvTzService</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
 </compatibility-matrix>
