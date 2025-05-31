@@ -861,21 +861,5 @@ vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
-# TrustZone
-vendor/bin/hw/vendor.vin.vTzService@1.0-service
-vendor/etc/init/vendor.vin.vTzService@1.0-service.rc
-vendor/lib/vendor.vin.vTzService@1.0.so
-vendor/lib64/vendor.vin.vTzService@1.0.so
-
-# TrustZone (Firmware)
-vendor/firmware/tzvin32.b00
-vendor/firmware/tzvin32.b01
-vendor/firmware/tzvin32.b02
-vendor/firmware/tzvin32.b03
-vendor/firmware/tzvin32.b04
-vendor/firmware/tzvin32.b05
-vendor/firmware/tzvin32.b06
-vendor/firmware/tzvin32.mdt
-
 # Wi-Fi
 vendor/etc/wifi/WCNSS_qcom_wlan_nv_v430mp_v1.5.bin
