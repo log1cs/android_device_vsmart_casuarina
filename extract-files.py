@@ -73,5 +73,6 @@ module = ExtractUtilsModule(
 )
 
 if __name__ == '__main__':
+    module.add_proprietary_file('proprietary-files-fp3.txt')
     utils = ExtractUtils.device(module)
     utils.run()

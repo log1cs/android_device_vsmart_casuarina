@@ -115,7 +115,7 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Vendor security patch level
-VENDOR_SECURITY_PATCH := 2021-11-01
+VENDOR_SECURITY_PATCH := 2024-11-05
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
