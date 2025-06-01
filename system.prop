@@ -5,6 +5,9 @@ audio.offload.min.duration.secs=30
 audio.offload.video=true
 ro.af.client_heap_size_kbyte=7168
 
+# Fastbootd
+ro.fastbootd.available=true
+
 # CNE
 persist.vendor.cne.feature=1
 
