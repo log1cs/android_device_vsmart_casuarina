@@ -1,6 +1,9 @@
 # Audio
 use.voice.path.for.pcm.voip=false
 
+# Fastbootd
+ro.fastbootd.available=true
+
 # CNE
 persist.vendor.cne.feature=1
 

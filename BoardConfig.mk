@@ -105,6 +105,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 
 # SEPolicy
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Treble
 TARGET_COPY_OUT_VENDOR := vendor
