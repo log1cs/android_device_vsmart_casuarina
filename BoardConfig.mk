@@ -112,6 +112,7 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
+BOARD_USES_FULL_RECOVERY_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.qcom
 
 # Releasetools
