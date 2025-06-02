@@ -64,6 +64,7 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom msm_rtb.filter=0x237 lpm_levels.sleep_disabled=1
 BOARD_KERNEL_CMDLINE += loop.max_part=7 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.boot_devices=soc/7824900.sdhci
+BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=qcom
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_KERNEL_PAGESIZE := 2048
