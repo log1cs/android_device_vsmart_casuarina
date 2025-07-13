@@ -231,15 +231,6 @@ vendor/lib64/libtinyxml2_1.so|ff32deb110acb02cb5def5f3404f9064c1276483
 vendor/lib/hw/vulkan.adreno.so|d8605174a447fe05976ed195318797f73a943ed5
 vendor/lib64/hw/vulkan.adreno.so|242ba0af54ad1467998c8df1345b85d568889a4a
 
-# Graphics (Adreno firmware) - from FP3 - 6.A.031.5
-vendor/firmware/a506_zap.b00|21d74ee137e4096c2ffcd6f2545b5b2f8f384efa
-vendor/firmware/a506_zap.b01|a411ea3349bd2e907d6598183d3044e565f28bf6
-vendor/firmware/a506_zap.b02|3e301fa5905acd05f15836959595791c1241a017
-vendor/firmware/a506_zap.elf|5532e3511cea20c47ee816ac9a74cf69881de0ee
-vendor/firmware/a506_zap.mdt|8e49bac7a52230ec70ab640f26ac57f7a8596b39
-vendor/firmware/a530_pfp.fw|35b72dce880191ff087af2524205afce40ea8c97
-vendor/firmware/a530_pm4.fw|b1cf625b5552b99839687f479c124ac5daca2ca2
-
 # Keystore - from FP3 - 6.A.031.5
 vendor/lib/hw/keystore.msm8953.so|1576284951387ada5f6d3a4e0689d2579c0f1713
 vendor/lib64/hw/keystore.msm8953.so|83a48633d4530c45e36cfb9cd7f3d63a8a5bc122
