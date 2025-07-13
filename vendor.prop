@@ -54,7 +54,6 @@ vendor.vidc.disable.split.mode=1
 persist.vendor.camera.customer.config=v430_camera.xml
 
 # Crypto
-ro.crypto.allow_encrypt_override=true
 ro.crypto.volume.filenames_mode=aes-256-cts
 
 # Cutout
