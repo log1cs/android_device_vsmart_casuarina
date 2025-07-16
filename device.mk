@@ -211,6 +211,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.3-service.basic
+
 # WLAN firmware symlinks
 PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink \
