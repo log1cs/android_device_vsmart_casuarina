@@ -22,9 +22,11 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/vsmart/casuarina',
-    'hardware/qcom-caf/msm8996',
+    'hardware/qcom-caf/msm8953',
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/dataservices',
+    'vendor/qcom/opensource/display',
+    'vendor/qcom/opensource/commonsys/display',
 ]
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
