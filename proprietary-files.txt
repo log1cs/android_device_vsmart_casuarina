@@ -168,6 +168,7 @@ vendor/etc/camera/gc2385_casuarina_chromatix.xml
 vendor/etc/camera/ov8856_casuarina_chromatix.xml
 vendor/etc/camera/s5k3l6_casuarina_chromatix.xml
 vendor/etc/camera/s5k4h7yx_casuarina_chromatix.xml
+vendor/etc/camera/v430_camera.xml
 
 # Camera (EEPROM)
 vendor/lib/libmmcamera_holitech_ov8856_casuarina_eeprom.so
