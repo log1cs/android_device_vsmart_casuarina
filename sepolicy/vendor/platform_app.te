@@ -1,0 +1,7 @@
+# fpsensor
+allow platform_app fpsensor_fp_device:chr_file rw_file_perms;
+allow platform_app fp_ext_svc2_service:hwservice_manager find;
+
+binder_call(platform_app, hal_fingerprint_default)
+
+allow platform_app radio_data_file:dir getattr;

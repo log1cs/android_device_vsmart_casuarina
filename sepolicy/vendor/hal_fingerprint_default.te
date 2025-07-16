@@ -1,0 +1,18 @@
+# fpsensor
+allow hal_fingerprint_default {
+  fpsensor_fp_device
+  uhid_device
+  tee_device
+}: chr_file { ioctl read write open };
+
+allow hal_fingerprint_default {
+  fuse
+  mnt_user_file
+}: dir search;
+
+allow hal_fingerprint_default {
+  mnt_user_file
+  storage_file
+}: lnk_file read;
+
+allow hal_fingerprint_default fp_ext_svc2_service:hwservice_manager add;
