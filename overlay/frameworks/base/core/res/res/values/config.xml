@@ -343,4 +343,49 @@
          or a single SIM device can have 1 phones/logical modems, but 2 physical slots (one eSIM
          and one pSIM) -->
     <integer name="config_num_physical_slots">2</integer>
+
+    <!-- The bounding path of the cutout region of the main built-in display.
+         Must either be empty if there is no cutout region, or a string that is parsable by
+         {@link android.util.PathParser}.
+         The path is assumed to be specified in display coordinates with pixel units and in
+         the display's native orientation, with the origin of the coordinate system at the
+         center top of the display.
+         To facilitate writing device-independent emulation overlays, the marker `@dp` can be
+         appended after the path string to interpret coordinates in dp instead of px units.
+         Note that a physical cutout should be configured in pixels for the best results.
+         Example for a 10px x 10px square top-center cutout:
+                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z</string>
+         Example for a 10dp x 10dp square top-center cutout:
+                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
+         @see https://www.w3.org/TR/SVG/paths.html#PathData
+         -->
+    <string translatable="false" name="config_mainBuiltInDisplayCutout">
+        M -60 0
+        L 60 0
+        C 58.925 0.056 57.843 0.112 56.772 0.172
+        C 56.234 0.284 55.69 0.392 55.152 0.504
+        C 54.357 0.826 53.566 1.147 52.771 1.468
+        C 52.051 1.969 51.327 2.465 50.607 2.966
+        C 50.013 3.612 49.424 4.258 48.827 4.905
+        C 48.397 5.648 47.972 6.391 47.543 7.131
+        C 47.36 7.65 47.173 8.169 46.991 8.692
+        C 46.789 9.75 46.58 10.807 46.375 11.864
+        C 46.285 12.521 46.192 13.179 46.102 13.84
+        C 42.897 36.865 23.226 55 -0.002 55
+        C -23.226 55 -42.897 36.865 -46.099 13.84
+        C -46.188 13.179 -46.285 12.521 -46.375 11.864
+        C -46.58 10.807 -46.789 9.75 -46.994 8.692
+        C -47.173 8.169 -47.36 7.65 -47.543 7.131
+        C -47.972 6.391 -48.397 5.648 -48.827 4.905
+        C -49.424 4.258 -50.013 3.612 -50.607 2.966
+        C -51.327 2.465 -52.051 1.969 -52.771 1.468
+        C -53.566 1.147 -54.357 0.826 -55.152 0.504
+        C -55.69 0.392 -56.234 0.284 -56.772 0.172
+        C -57.847 0.112 -58.925 0.056 -60 0
+        Z
+    </string>
+
+    <!-- Height of the status bar -->
+    <dimen name="status_bar_height_portrait">55.0px</dimen>
+    <dimen name="status_bar_height_landscape">24.0dp</dimen>
 </resources>
