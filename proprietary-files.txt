@@ -325,4 +325,3 @@ vendor/etc/thermal-engine.conf
 
 # Wi-Fi
 vendor/etc/wifi/WCNSS_qcom_wlan_nv_v430mp_v1.5.bin
-

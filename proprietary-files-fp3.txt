@@ -587,3 +587,6 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|f6b0e0e951394b609f0cb5c19e83a37
 vendor/lib/libUBWC.so|be0b60ad8727284c12333dfd7282c7ae3a67f48c
 vendor/lib/libstreamparser.so|69f6bb1df16ae77415247fd42f1386a43edc87af
 vendor/lib/libvideoutils.so|db331acb1ae55d61f0735ffbf041585303324d30
+
+# Wi-Fi - from FP3 - 6.A.031.5
+vendor/bin/wcnss_service:vendor/bin/wcnss_service_prebuilt|18a234235418d01f7b6faa8a6bea78de5f4d346a

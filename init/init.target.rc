@@ -146,7 +146,7 @@ on boot
     setprop vendor.usb.rmnet.inst.name "rmnet"
     setprop vendor.usb.dpl.inst.name "dpl"
 
-service wcnss-service /vendor/bin/wcnss_service
+service wcnss-service /vendor/bin/wcnss_service_prebuilt
     class main
     user system
     group system wifi radio
