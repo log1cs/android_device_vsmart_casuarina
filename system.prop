@@ -29,3 +29,7 @@ ril.subscription.types=NV,RUIM
 rild.libargs=-d /dev/smd0
 ro.telephony.default_network=22,22
 telephony.lteOnCdmaDevice=1
+
+# Telephony
+# Disable handling audio direction changes on IMS calls.
+ro.telephony.handle_audio_direction_changes_between_call_state_changes=false
