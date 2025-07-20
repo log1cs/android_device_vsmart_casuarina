@@ -1,6 +1,9 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
 ## are from casuarina_open (V430A_OPN_U_B15_211112).
 
+# Current blobs with ELF checks disabled:
+# libGLESv1_CM_adreno, libGLESv2_adreno, libq3dtools_adreno, libq3dtools_esx, libgsl, libCB, libllvm-qcom, libllvm-glnext depend on the following symbols: __aeabi_ldivmod, __aeabi_uldivmod
+
 # ADSP modules
 vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 vendor/lib/rfsa/adsp/libapps_mem_heap.so
@@ -298,6 +301,42 @@ vendor/lib64/ftm_fm_lib.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 
+# Graphics (Adreno)
+vendor/lib/egl/eglSubDriverAndroid.so
+vendor/lib/egl/libEGL_adreno.so
+vendor/lib/egl/libGLESv1_CM_adreno.so;DISABLE_CHECKELF
+vendor/lib/egl/libGLESv2_adreno.so;DISABLE_CHECKELF
+vendor/lib/egl/libQTapGLES.so
+vendor/lib/egl/libq3dtools_adreno.so;DISABLE_CHECKELF
+vendor/lib/egl/libq3dtools_esx.so;DISABLE_CHECKELF
+vendor/lib/hw/vulkan.msm8953.so
+vendor/lib/libC2D2.so
+vendor/lib/libCB.so;DISABLE_CHECKELF
+vendor/lib/libOpenCL.so
+vendor/lib/libadreno_utils.so
+vendor/lib/libc2d30_bltlib.so
+vendor/lib/libgsl.so;DISABLE_CHECKELF
+vendor/lib/libllvm-glnext.so;DISABLE_CHECKELF
+vendor/lib/libllvm-qcom.so;DISABLE_CHECKELF
+vendor/lib/libmm-hdcpmgr.so
+vendor/lib64/egl/eglSubDriverAndroid.so
+vendor/lib64/egl/libEGL_adreno.so
+vendor/lib64/egl/libGLESv1_CM_adreno.so;DISABLE_CHECKELF
+vendor/lib64/egl/libGLESv2_adreno.so;DISABLE_CHECKELF
+vendor/lib64/egl/libQTapGLES.so
+vendor/lib64/egl/libq3dtools_adreno.so;DISABLE_CHECKELF
+vendor/lib64/egl/libq3dtools_esx.so
+vendor/lib64/hw/vulkan.msm8953.so
+vendor/lib64/libC2D2.so
+vendor/lib64/libCB.so;DISABLE_CHECKELF
+vendor/lib64/libOpenCL.so
+vendor/lib64/libadreno_utils.so
+vendor/lib64/libc2d30_bltlib.so
+vendor/lib64/libgsl.so;DISABLE_CHECKELF
+vendor/lib64/libllvm-glnext.so;DISABLE_CHECKELF
+vendor/lib64/libllvm-qcom.so;DISABLE_CHECKELF
+vendor/lib64/libmm-hdcpmgr.so
+
 # Graphics (Adreno firmware)
 vendor/firmware/a506_zap.b00
 vendor/firmware/a506_zap.b01
@@ -307,6 +346,24 @@ vendor/firmware/a506_zap.mdt
 vendor/firmware/a530_pfp.fw
 vendor/firmware/a530_pm4.fw
 
+# Graphics (HDR)
+vendor/lib/libhdr_tm.so
+vendor/lib64/libhdr_tm.so
+
+# Graphics (SDM)
+vendor/lib/libscalar.so
+vendor/lib/libsdm-color.so
+vendor/lib/libsdm-diag.so
+vendor/lib/libsdm-disp-vndapis.so
+vendor/lib/libsdmextension.so
+vendor/lib/libtinyxml2_1.so
+vendor/lib64/libscalar.so
+vendor/lib64/libsdm-color.so
+vendor/lib64/libsdm-diag.so
+vendor/lib64/libsdm-disp-vndapis.so
+vendor/lib64/libsdmextension.so
+vendor/lib64/libtinyxml2_1.so
+
 # Listen
 vendor/lib/libadpcmdec.so
 vendor/lib/libgcs-calwrapper.so
@@ -315,6 +372,16 @@ vendor/lib/libgcs-osal.so
 vendor/lib/liblistenjni.so
 vendor/lib/liblistensoundmodel2.so
 vendor/lib/libsmwrapper.so
+
+# Postprocessing
+vendor/bin/hw/vendor.display.color@1.0-service
+vendor/bin/mm-pp-dpps
+vendor/etc/init/vendor.display.color@1.0-service.rc
+vendor/lib64/libdisp-aba.so
+vendor/lib64/vendor.display.color@1.0.so
+vendor/lib64/vendor.display.color@1.1.so
+vendor/lib64/vendor.display.color@1.2.so
+vendor/lib64/vendor.display.postproc@1.0.so
 
 # Sensors configurations
 vendor/etc/sensors/hals.conf
