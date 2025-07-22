@@ -55,6 +55,9 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
+    'vendor/lib64/hw/fingerprint.msm8953.so': blob_fixup()
+        .fix_soname()
+        .binary_regex_replace(b'fpsensor_fingerprint\x00', b'fingerprint\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'),
     'vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so': blob_fixup()
 	.replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
     'vendor/lib64/libwvhidl.so': blob_fixup()
