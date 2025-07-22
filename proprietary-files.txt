@@ -810,6 +810,10 @@ vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so|62cd64dbb25d082cfdc742fb03931ba0f9a
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so|fa120eaa7807ff43f3974a8e0146a8c00c78f623
 vendor/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE_SUFFIX=_vendor|460e589128fce0b0e83bb3c75aa32f7e1a9494fd
 
+# Seccomp
+vendor/etc/seccomp_policy/mediacodec.policy
+vendor/etc/seccomp_policy/mediaextractor.policy
+
 # Sensors
 vendor/bin/sensors.qti
 vendor/lib/libsensor1.so
