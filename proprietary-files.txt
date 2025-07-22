@@ -213,6 +213,7 @@ vendor/firmware/cpp_firmware_v1_8_0.fw
 vendor/lib/libmmcamera_gc2385_casuarina.so
 vendor/lib/libmmcamera_s5k3l6_casuarina.so
 vendor/lib/libmmcamera_s5k4h7yx_casuarina.so
+vendor/lib/libmmcamera_ov8856_4lane_casuarina.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_frame_algorithm.so
