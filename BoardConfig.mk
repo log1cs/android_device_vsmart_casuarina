@@ -62,7 +62,7 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/vsmart/msm8953
-TARGET_KERNEL_CONFIG := casuarina_defconfig
+TARGET_KERNEL_CONFIG := casuarina_defconfig vendor/debugfs.config
 TARGET_KERNEL_VERSION := 4.9
 
 # Media
