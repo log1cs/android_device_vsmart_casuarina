@@ -57,25 +57,14 @@ persist.vendor.qcom.bluetooth.enable.splita2dp=false
 persist.vendor.qcom.bluetooth.soc=pronto
 vendor.qcom.bluetooth.soc=pronto
 
-# Camera
-vidc.enc.dcvs.extra-buff-count=2
-persist.vendor.camera.preview.ubwc=0
-vendor.video.disable.ubwc=1
-vendor.vidc.disable.split.mode=1
-persist.vendor.camera.customer.config=v430_camera.xml
-
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
-
-# Cutout
-ro.support_hide_display_cutout=true
 
 # Dalvik
 dalvik.vm.dex2oat64.enabled=true
 
 # Display
 ro.surface_flinger.enable_frame_rate_override=false
-ro.sf.hwc_set_default_colormode=true
 debug.renderengine.backend=skiaglthreaded
 debug.sf.disable_client_composition_cache=1
 debug.sf.hw=1
@@ -98,6 +87,7 @@ ro.frp.pst=/dev/block/platform/soc/7824900.sdhci/by-name/config
 ro.vendor.fm.use_audio_session=true
 
 # OMX
+vendor.vidc.disable.split.mode=1
 debug.stagefright.omx_default_rank.sw-audio=1
 debug.stagefright.omx_default_rank=0
 
@@ -134,9 +124,6 @@ ro.surface_flinger.vsync_event_phase_offset_ns=2000000
 ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 ro.surface_flinger.has_wide_color_display=false
 ro.surface_flinger.use_color_management=true
-
-# Time daemon
-persist.timed.enable=true
 
 # USB
 vendor.usb.rmnet.func.name=rmnet_bam
