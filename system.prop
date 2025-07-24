@@ -1,8 +1,16 @@
 # Audio
 use.voice.path.for.pcm.voip=false
 
+# Camera
+persist.vendor.camera.preview.ubwc=0
+vendor.video.disable.ubwc=1
+persist.vendor.camera.customer.config=v430_camera.xml
+
 # Fastbootd
 ro.fastbootd.available=true
+
+# Cutout
+ro.support_hide_display_cutout=true
 
 # CNE
 persist.vendor.cne.feature=1
@@ -17,6 +25,7 @@ persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 
 # Media
+vidc.enc.dcvs.extra-buff-count=2
 media.stagefright.thumbnail.prefer_hw_codecs=true
 
 # Radio
@@ -30,3 +39,6 @@ vendor.service.qti.ims.enabled=1
 # Telephony
 # Disable handling audio direction changes on IMS calls.
 ro.telephony.handle_audio_direction_changes_between_call_state_changes=false
+
+# Time daemon
+persist.timed.enable=true
