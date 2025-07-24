@@ -1,5 +1,6 @@
 allow hal_camera_default camera_prop:property_service set;
 allow hal_camera_default sysfs:file { read open };
+allow hal_camera_default diag_device:chr_file { open read write };
 
 #============= hal_camera_default ==============
 get_prop(hal_camera_default, bootanim_system_prop)
