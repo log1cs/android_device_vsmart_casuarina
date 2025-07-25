@@ -845,8 +845,8 @@ vendor/lib64/libscveObjectSegmentation.so
 vendor/lib64/libscveObjectSegmentation_stub.so
 vendor/lib64/libscveObjectTracker.so
 vendor/lib64/libscveObjectTracker_stub.so
-vendor/lib64/libscvePanorama.so;DISABLE_CHECKELF
-vendor/lib64/libscvePanorama_lite.so;DISABLE_CHECKELF
+vendor/lib64/libscvePanorama.so
+vendor/lib64/libscvePanorama_lite.so
 vendor/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so;MODULE_SUFFIX=_vendor
 
