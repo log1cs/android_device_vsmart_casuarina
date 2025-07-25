@@ -796,7 +796,6 @@ vendor/lib64/vendor.qti.imsrtpservice@2.1.so;MODULE_SUFFIX=_vendor
 
 # Seccomp
 vendor/etc/seccomp_policy/mediacodec.policy
-vendor/etc/seccomp_policy/mediaextractor.policy
 
 # Sensors
 vendor/bin/sensors.qti
