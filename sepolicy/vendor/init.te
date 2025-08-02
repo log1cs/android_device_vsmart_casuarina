@@ -5,3 +5,6 @@ allow init vendor_file:file execute;
 
 # logdump
 allow init logdump_partition:lnk_file relabelto;
+
+# MMC
+allow init sysfs_mmc_host:file w_file_perms;
