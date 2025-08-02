@@ -85,6 +85,8 @@ PRODUCT_PACKAGES += \
     hwcomposer.qcom \
     vendor.qti.hardware.memtrack-service
 
+$(call soong_config_set,qtidisplay,display_config_variable_info_has_pixel_formats,true)
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
