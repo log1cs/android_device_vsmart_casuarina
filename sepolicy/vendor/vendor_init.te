@@ -11,3 +11,6 @@ allow vendor_init {
 
 # Allow vendor_init to relabel unlabeled files and directories
 allow vendor_init unlabeled:{ dir file } { getattr relabelfrom };
+
+# Allow vendor_init to set camera properties
+allow vendor_init vendor_info_camera_prop:property_service set;
