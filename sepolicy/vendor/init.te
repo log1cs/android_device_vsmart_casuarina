@@ -2,3 +2,6 @@
 allow init fpsensor_fp_device:chr_file write;
 
 allow init vendor_file:file execute;
+
+# logdump
+allow init logdump_partition:lnk_file relabelto;
