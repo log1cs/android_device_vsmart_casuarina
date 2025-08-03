@@ -24,7 +24,8 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libvolumelistener \
-    tinymix
+    tinymix \
+    sound_trigger.primary.msm8953
 
 AUDIO_HAL_PATH := hardware/qcom-caf/msm8996/audio
 
