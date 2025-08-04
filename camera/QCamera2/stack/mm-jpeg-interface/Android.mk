@@ -80,7 +80,6 @@ LOCAL_SRC_FILES := \
 
 LOCAL_MODULE           := libmmjpeg_interface
 include $(SDCLANG_COMMON_DEFS)
-LOCAL_PRELINK_MODULE   := false
 LOCAL_SHARED_LIBRARIES := libdl libcutils liblog libqomx_core libmmcamera_interface
 ifeq ($(strip $(LIB2D_ROTATION)),true)
     LOCAL_SHARED_LIBRARIES += libmmlib2d_interface
