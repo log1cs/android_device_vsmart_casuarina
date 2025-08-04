@@ -3,6 +3,7 @@
 
 # Current blobs with ELF checks disabled:
 # libGLESv1_CM_adreno, libq3dtools_adreno, vulkan.msm8953, libCB, libgsl depend on NDK libnativewindow and build is unable to resolve its symbols
+# libmmcamera_tuning depends on libmm-qcamera, which is a GNU Makefile target
 
 # ADSP
 vendor/bin/adsprpcd
@@ -72,25 +73,17 @@ vendor/lib64/libbluetooth_audio_session_qti.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 
 # Camera
-vendor/bin/mm-qcamera-app
-vendor/lib/hw/camera.msm8953.so
-vendor/lib/libcamera2ndk_vendor.so
 vendor/lib/libcapiv2svacnn.so
 vendor/lib/libcapiv2vop.so
 vendor/lib/libdepthmapwrapper.so
 vendor/lib/libflash_pmic.so
-vendor/lib/libhal_dbg.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
-vendor/lib/libmm-qcamera.so
 vendor/lib/libmmjpeg.so
-vendor/lib/libmmjpeg_interface.so
-vendor/lib/libmmlib2d_interface.so
 vendor/lib/libmmqjpegdma.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmpbase.so
-vendor/lib/libqomx_core.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
@@ -246,7 +239,6 @@ vendor/lib/libmmcamera_faceproc2.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
 vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_imglib_faceproc_adspstub.so
-vendor/lib/libmmcamera_interface.so
 vendor/lib/libmmcamera_irs1645.so
 vendor/lib/libmmcamera_isp_abf40.so
 vendor/lib/libmmcamera_isp_bcc40.so
@@ -294,7 +286,7 @@ vendor/lib/libmmcamera_sw2d_lib.so
 vendor/lib/libmmcamera_thread_services.so
 vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
-vendor/lib/libmmcamera_tuning.so
+vendor/lib/libmmcamera_tuning.so;DISABLE_DEPS
 vendor/lib/libmmcamera_tuning_lookup.so
 
 # Charger
