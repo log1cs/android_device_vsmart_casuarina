@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2019, The Linux Foundation. All rights reserved.
+* Copyright (c) 2019-2020, The Linux Foundation. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -34,7 +34,8 @@
 #define LOG_NDEBUG 0
 
 #include <android/hidl/manager/1.0/IServiceManager.h>
-#include <android/hardware/health/2.0/IHealth.h>
+#include <android/hardware/health/2.1/IHealth.h>
+#include <android/hardware/health/2.1/IHealthInfoCallback.h>
 #include <healthhalutils/HealthHalUtils.h>
 #include <hidl/HidlTransportSupport.h>
 #include <thread>
@@ -44,10 +45,9 @@ using android::hardware::interfacesEqual;
 using android::hardware::Return;
 using android::hardware::Void;
 using android::hardware::health::V1_0::BatteryStatus;
-using android::hardware::health::V1_0::toString;
-using android::hardware::health::V2_0::get_health_service;
-using android::hardware::health::V2_0::HealthInfo;
-using android::hardware::health::V2_0::IHealth;
+using android::hardware::health::V2_1::HealthInfo;
+using android::hardware::health::V2_1::IHealthInfoCallback;
+using android::hardware::health::V2_1::IHealth;
 using android::hardware::health::V2_0::Result;
 using android::hidl::manager::V1_0::IServiceManager;
 using namespace std::literals::chrono_literals;
@@ -58,13 +58,15 @@ namespace android {
 #define GET_HEALTH_SVC_RETRY_CNT 5
 #define GET_HEALTH_SVC_WAIT_TIME_MS 500
 
-struct BatteryListenerImpl : public hardware::health::V2_0::IHealthInfoCallback,
+struct BatteryListenerImpl : public hardware::health::V2_1::IHealthInfoCallback,
                              public hardware::hidl_death_recipient {
     typedef std::function<void(bool)> cb_fn_t;
     BatteryListenerImpl(cb_fn_t cb);
     virtual ~BatteryListenerImpl ();
     virtual hardware::Return<void> healthInfoChanged(
-        const hardware::health::V2_0::HealthInfo& info);
+            const hardware::health::V2_0::HealthInfo& info);
+    virtual hardware::Return<void> healthInfoChanged_2_1(
+            const hardware::health::V2_1::HealthInfo& info);
     virtual void serviceDied(uint64_t cookie,
                              const wp<hidl::base::V1_0::IBase>& who);
     bool isCharging() {
@@ -72,7 +74,7 @@ struct BatteryListenerImpl : public hardware::health::V2_0::IHealthInfoCallback,
         return statusToBool(mStatus);
     }
   private:
-    sp<hardware::health::V2_0::IHealth> mHealth;
+    sp<hardware::health::V2_1::IHealth> mHealth;
     status_t init();
     BatteryStatus mStatus;
     cb_fn_t mCb;
@@ -94,7 +96,7 @@ status_t BatteryListenerImpl::init()
         return INVALID_OPERATION;
 
     do {
-        mHealth = hardware::health::V2_0::get_health_service();
+        mHealth = IHealth::getService();
         if (mHealth != NULL)
             break;
         usleep(GET_HEALTH_SVC_WAIT_TIME_MS * 1000);
@@ -183,7 +185,7 @@ BatteryListenerImpl::~BatteryListenerImpl()
     {
         std::lock_guard<std::mutex> _l(mLock);
         if (mHealth != NULL) {
-            mHealth->unlinkToDeath(this);
+            mHealth->unregisterCallback(this);
             auto r = mHealth->unlinkToDeath(this);
             if (!r.isOk() || r == false) {
                 LOC_LOGe("Transaction error in unregister to HealthHAL death: %s",
@@ -192,9 +194,7 @@ BatteryListenerImpl::~BatteryListenerImpl()
         }
     }
     mDone = true;
-    if (NULL !=  mThread) {
-        mThread->join();
-    }
+    mThread->join();
 }
 
 void BatteryListenerImpl::serviceDied(uint64_t cookie __unused,
@@ -209,9 +209,9 @@ void BatteryListenerImpl::serviceDied(uint64_t cookie __unused,
         LOC_LOGi("health service died, reinit");
         mDone = true;
     }
-    if (NULL !=  mThread) {
-        mThread->join();
-    }
+    mHealth = NULL;
+    mCond.notify_one();
+    mThread->join();
     std::lock_guard<std::mutex> _l(mLock);
     init();
 }
@@ -229,6 +229,13 @@ Return<void> BatteryListenerImpl::healthInfoChanged(
         mStatus = info.legacy.batteryStatus;
         mCond.notify_one();
     }
+    return Void();
+}
+
+Return<void> BatteryListenerImpl::healthInfoChanged_2_1(
+        const hardware::health::V2_1::HealthInfo& info) {
+    LOC_LOGv("healthInfoChanged_2_1: %d", info.legacy.legacy.batteryStatus);
+    healthInfoChanged(info.legacy);
     return Void();
 }
 
@@ -256,6 +263,7 @@ status_t batteryPropertiesListenerDeinit() {
 } // namespace android
 
 void loc_extn_battery_properties_listener_init(battery_status_change_fn_t fn) {
+    LOC_LOGv("loc_extn_battery_properties_listener_init entry");
     if (!sIsBatteryListened) {
         std::thread t1(android::batteryPropertiesListenerInit,
                 [=](bool charging) { fn(charging); });

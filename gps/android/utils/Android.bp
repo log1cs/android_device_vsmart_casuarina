@@ -1,15 +1,15 @@
 cc_library_static {
+
     name: "liblocbatterylistener",
     vendor: true,
-    cflags: GNSS_CFLAGS + [
-        "-DBATTERY_LISTENER_ENABLED",
-    ],
-    local_include_dirs: [
-        ".",
-    ],
-    srcs: [
-        "battery_listener.cpp",
-    ],
+
+
+
+    cflags: GNSS_CFLAGS + ["-DBATTERY_LISTENER_ENABLED"],
+    local_include_dirs: ["."],
+
+    srcs: ["battery_listener.cpp"],
+
     shared_libs: [
         "liblog",
         "libhidlbase",
@@ -17,21 +17,22 @@ cc_library_static {
         "libutils",
         "android.hardware.health@1.0",
         "android.hardware.health@2.0",
+        "android.hardware.health@2.1",
         "android.hardware.power@1.2",
         "libbase",
     ],
-    static_libs: [
-        "libhealthhalutils",
-    ],
+
+    static_libs: ["libhealthhalutils"],
+
     header_libs: [
         "libgps.utils_headers",
+        "libloc_pla_headers",
     ],
 }
 
 cc_library_headers {
+
     name: "liblocbatterylistener_headers",
     vendor: true,
-    export_include_dirs: [
-        ".",
-    ],
+    export_include_dirs: ["."],
 }

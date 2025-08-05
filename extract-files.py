@@ -51,6 +51,8 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/lib-imsvideocodec.so': blob_fixup()
 	.add_needed('libgui_shim.so')
 	.replace_needed('libqdMetaData.so', 'libqdMetaData.system.so'),
+    'vendor/etc/izat.conf': blob_fixup()
+        .patch_file('gps/0001-gps-izat-Disable-slim_daemon.patch'),
     ('vendor/lib/libmmcamera_faceproc.so', 'vendor/lib/libmmcamera_faceproc2.so'): blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')

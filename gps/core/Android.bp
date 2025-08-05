@@ -1,6 +1,11 @@
+
 cc_library_shared {
+
     name: "libloc_core",
     vendor: true,
+
+
+
     shared_libs: [
         "liblog",
         "libutils",
@@ -9,6 +14,7 @@ cc_library_shared {
         "libdl",
         "liblog",
     ],
+
     srcs: [
         "LocApiBase.cpp",
         "LocAdapterBase.cpp",
@@ -19,27 +25,31 @@ cc_library_shared {
         "SystemStatusOsObserver.cpp",
         "SystemStatus.cpp",
     ],
-    cflags: GNSS_CFLAGS + [
+
+    cflags: [
         "-fno-short-enums",
         "-D_ANDROID_",
-    ],
+    ] + GNSS_CFLAGS,
+
     local_include_dirs: [
         "data-items",
         "observer",
     ],
+
     header_libs: [
         "libutils_headers",
         "libgps.utils_headers",
         "libloc_pla_headers",
         "liblocation_api_headers",
     ],
+
 }
 
 cc_library_headers {
+
     name: "libloc_core_headers",
     vendor: true,
-    export_include_dirs: [
-        ".",
+    export_include_dirs: ["."] + [
         "data-items",
         "observer",
     ],
