@@ -42,6 +42,7 @@ lib_fixups: lib_fixups_user_type = {
     ): lib_fixup_vendor_suffix,
     (
 	'libwifi-hal-ctrl',
+	'libbinder-v30',
     ): lib_fixup_remove,
 }
 
@@ -57,8 +58,6 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
-    'vendor/lib/libremosaic_daemon.so': blob_fixup()
-	.replace_needed('libbinder-v30.so', 'libbinder_shim.so'),
     'vendor/lib64/hw/fingerprint.msm8953.so': blob_fixup()
         .fix_soname()
         .binary_regex_replace(b'fpsensor_fingerprint\x00', b'fingerprint\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'),
