@@ -22,9 +22,11 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/vsmart/casuarina',
-    'hardware/qcom-caf/msm8996',
+    'hardware/qcom-caf/msm8953',
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/dataservices',
+    'vendor/qcom/opensource/display',
+    'vendor/qcom/opensource/commonsys/display',
 ]
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
@@ -49,8 +51,6 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/lib-imsvideocodec.so': blob_fixup()
 	.add_needed('libgui_shim.so')
 	.replace_needed('libqdMetaData.so', 'libqdMetaData.system.so'),
-    'vendor/bin/pm-service': blob_fixup()
-	.add_needed('libutils-v33.so'),
     ('vendor/lib/libmmcamera_faceproc.so', 'vendor/lib/libmmcamera_faceproc2.so'): blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
@@ -60,8 +60,6 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'fpsensor_fingerprint\x00', b'fingerprint\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'),
     'vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so': blob_fixup()
 	.add_needed('libhidlbase_shim.so'),
-    'vendor/lib64/libwvhidl.so': blob_fixup()
-        .add_needed('libcrypto_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
@@ -74,5 +72,6 @@ module = ExtractUtilsModule(
 )
 
 if __name__ == '__main__':
+    module.add_proprietary_file('proprietary-files-qssi.txt')
     utils = ExtractUtils.device(module)
     utils.run()
