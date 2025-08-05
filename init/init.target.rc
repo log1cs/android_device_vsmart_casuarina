@@ -186,11 +186,6 @@ on property:init.svc.vendor.charger=running
     start vendor.hvdcp_opti
     start vendor.power_off_alarm
 
-service adsprpcd /vendor/bin/adsprpcd
-    class main
-    user media
-    group media
-
 service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
    class main
    user root
