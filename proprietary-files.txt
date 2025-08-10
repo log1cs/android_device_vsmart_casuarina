@@ -850,4 +850,4 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
 # Wi-Fi
-vendor/etc/wifi/WCNSS_qcom_wlan_nv_v430mp_v1.5.bin
+vendor/etc/wifi/WCNSS_qcom_wlan_nv_v430mp_v1.5.bin;SYMLINK=vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
