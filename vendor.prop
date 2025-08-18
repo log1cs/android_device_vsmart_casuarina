@@ -94,9 +94,6 @@ debug.stagefright.omx_default_rank=0
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
-# Keymaster
-ro.hardware.keystore_desede=true
-
 # Radio
 persist.vendor.radio.enableadvancedscan=false
 persist.vendor.radio.apm_sim_not_pwdn=1
@@ -106,6 +103,9 @@ persist.vendor.radio.rat_on=combine
 persist.vendor.radio.mt_sms_ack=30
 persist.vendor.radio.procedure_bytes=SKIP
 vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
+
+# Keymaster
+ro.hardware.keystore_desede=true
 
 # SOC
 ro.soc.manufacturer=Qualcomm

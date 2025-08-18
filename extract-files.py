@@ -53,7 +53,7 @@ blob_fixups: blob_fixups_user_type = {
     ('system_ext/lib64/lib-imscamera.so', 'system_ext/lib64/lib-imsvideocodec.so'): blob_fixup()
         .add_needed('libgui_shim.so'),
     'vendor/bin/pm-service': blob_fixup()
-        .add_needed('libutils-v33.so'),
+	.add_needed('libutils-v33.so'),
     ('vendor/lib/libmmcamera_faceproc.so', 'vendor/lib/libmmcamera_faceproc2.so'): blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
@@ -62,7 +62,7 @@ blob_fixups: blob_fixups_user_type = {
         .fix_soname()
         .binary_regex_replace(b'fpsensor_fingerprint\x00', b'fingerprint\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'),
     'vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so': blob_fixup()
-        .add_needed('libhidlbase_shim.so'),
+	.add_needed('libhidlbase_shim.so'),
     'vendor/lib64/libwvhidl.so': blob_fixup()
         .add_needed('libcrypto_shim.so'),
 }  # fmt: skip

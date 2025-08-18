@@ -88,6 +88,7 @@ TARGET_BOARD_PLATFORM := msm8953
 
 # Power
 TARGET_USES_INTERACTION_BOOST := true
+TARGET_TAP_TO_WAKE_NODE := /sys/class/vsm/tsp/doubletap_enable
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
