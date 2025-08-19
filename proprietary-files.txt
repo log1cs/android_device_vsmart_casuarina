@@ -540,6 +540,11 @@ vendor/lib64/libgpustats.so
 # Modem
 vendor/lib64/libwms.so
 
+# NFC - from casuarina_rus - V430E_RUS_U_B2_201013
+vendor/etc/libnfc-nci.conf|af3371a096747b5efb065c71beb647429fe725f9
+vendor/etc/libnfc-nxp.conf|8aaf9bb95551846eaa987d3c51d210f577f6d63e
+vendor/lib/libpn547_fw.so|da032599b677d2d7ecc27e54320f0cd49962f182
+
 # PD mapper
 vendor/lib64/libpdmapper.so
 
