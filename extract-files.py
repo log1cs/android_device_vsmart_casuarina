@@ -21,7 +21,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/vsmart/casuarina',
+    'device/vsmart/msm8953-common',
     'hardware/qcom-caf/msm8996',
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/dataservices',
@@ -30,41 +30,11 @@ namespace_imports = [
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
-lib_fixups: lib_fixups_user_type = {
-    **lib_fixups,
-    (
-        'com.qualcomm.qti.dpm.api@1.0',
-        'vendor.qti.imsrtpservice@2.0',
-        'vendor.qti.imsrtpservice@2.1',
-    ): lib_fixup_vendor_suffix,
-    (
-	'libwifi-hal-ctrl',
-    ): lib_fixup_remove,
-}
-
 blob_fixups: blob_fixups_user_type = {
-    ('system_ext/etc/init/dpmd.rc', 'system_ext/etc/permissions/com.qti.dpmframework.xml', 'system_ext/etc/permissions/dpmapi.xml',
-     'system_ext/etc/permissions/qcrilhook.xml', 'system_ext/etc/permissions/telephonyservice.xml'): blob_fixup()
-        .regex_replace('/product/', '/system_ext/'),
-    ('vendor/etc/data/dsi_config.xml', 'vendor/etc/data/netmgr_config.xml'): blob_fixup()
-        .fix_xml(),
-    ('system_ext/lib/libdpmframework.so', 'system_ext/lib64/libdpmframework.so'): blob_fixup()
-        .add_needed('libcutils_shim.so'),
-    ('system_ext/lib64/lib-imscamera.so', 'system_ext/lib64/lib-imsvideocodec.so'): blob_fixup()
-        .add_needed('libgui_shim.so'),
-    'vendor/bin/pm-service': blob_fixup()
-        .add_needed('libutils-v33.so'),
     ('vendor/lib/libmmcamera_faceproc.so', 'vendor/lib/libmmcamera_faceproc2.so'): blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
-    'vendor/lib64/hw/fingerprint.msm8953.so': blob_fixup()
-        .fix_soname()
-        .binary_regex_replace(b'fpsensor_fingerprint\x00', b'fingerprint\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'),
-    'vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so': blob_fixup()
-        .add_needed('libhidlbase_shim.so'),
-    'vendor/lib64/libwvhidl.so': blob_fixup()
-        .add_needed('libcrypto_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
@@ -77,5 +47,5 @@ module = ExtractUtilsModule(
 )
 
 if __name__ == '__main__':
-    utils = ExtractUtils.device(module)
+    utils = ExtractUtils.device_with_common(module, 'msm8953-common', module.vendor)
     utils.run()

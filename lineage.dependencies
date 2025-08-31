@@ -1,6 +1,6 @@
 [
   {
-    "repository": "android_kernel_vsmart_msm8953",
-    "target_path": "kernel/vsmart/msm8953"
+    "repository": "android_device_vsmart_msm8953-common",
+    "target_path": "device/vsmart/msm8953-common"
   }
 ]

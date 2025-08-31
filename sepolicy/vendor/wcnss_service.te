@@ -1,5 +1,0 @@
-allow wcnss_service init:unix_stream_socket connectto;
-
-# Allow wcnss_service to set and get vendor properties
-get_prop(wcnss_service, vendor_wifi_prop)
-set_prop(wcnss_service, vendor_wifi_prop)
