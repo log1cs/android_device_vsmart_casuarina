@@ -1,5 +1,0 @@
-#vendor-info.camera
-vendor_public_prop(vendor_info_camera_prop)
-
-# WCNSS
-vendor_internal_prop(vendor_wifi_prop)

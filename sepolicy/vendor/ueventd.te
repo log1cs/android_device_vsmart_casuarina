@@ -1,4 +1,0 @@
-allow ueventd self:capability sys_nice;
-
-# logdump
-allow ueventd tmpfs:lnk_file read;

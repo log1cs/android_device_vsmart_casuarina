@@ -1,0 +1,10 @@
+service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
+    override
+    class hal
+    user nfc
+    group nfc
+    task_profiles ProcessCapacityHigh
+    disabled
+
+on property:ro.boot.nfc=true
+    enable vendor.nfc_hal_service
